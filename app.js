@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 
-app.use((req, res, next) => {
-    res.status(200).json({
-        message: 'It works!'
-    });
-});  // middleware,     // next -> function
+const productRoutes = require('./api/routes/products');
+const orderRoutes = require('./api/routes/order');
+/**
+ * middleware for a node app    
+ */
+app.use('/products', productRoutes);    // get to product route
+app.use('/orders', orderRoutes);
 
 module.exports = app;
