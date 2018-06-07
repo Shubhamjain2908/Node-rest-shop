@@ -1,12 +1,15 @@
 const express = require('express');
 const app = express();
 const morgon = require('morgan');
+const bodyParser = require('body-parser');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/order');
 
 //This tells express to log via morgan
 app.use(morgon('dev'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 /**
  * middleware for a node app    
