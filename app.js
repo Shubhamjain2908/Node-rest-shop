@@ -11,6 +11,7 @@ const orderRoutes = require('./api/routes/orders');
 mongoose.connect('mongodb://shubhamjain2908:sjain2908@node-rest-shop-shard-00-00-ansmc.mongodb.net:27017,node-rest-shop-shard-00-01-ansmc.mongodb.net:27017,node-rest-shop-shard-00-02-ansmc.mongodb.net:27017/test?ssl=true&replicaSet=node-rest-shop-shard-0&authSource=admin&retryWrites=true');
 //This tells express to log via morgan
 app.use(morgon('dev'));
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
