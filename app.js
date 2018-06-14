@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+const userRoutes = require('./api/routes/users');
 
 //mongoose.connect('mongodb+srv://shubhamjain2908:' + process.env.MONGO_ATLAS_PW + '@node-rest-shop-ansmc.mongodb.net/test?retryWrites=true');
 mongoose.connect('mongodb://shubhamjain2908:sjain2908@node-rest-shop-shard-00-00-ansmc.mongodb.net:27017,node-rest-shop-shard-00-01-ansmc.mongodb.net:27017,node-rest-shop-shard-00-02-ansmc.mongodb.net:27017/test?ssl=true&replicaSet=node-rest-shop-shard-0&authSource=admin&retryWrites=true');
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
  */
 app.use('/products', productRoutes);    // get to product route
 app.use('/orders', orderRoutes);
+app.use('/user', userRoutes);
 
 //error handling : other than above requests
 app.use((req, res, next) => {
